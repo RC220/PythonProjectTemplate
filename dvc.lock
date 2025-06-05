@@ -17,3 +17,21 @@ stages:
       hash: md5
       md5: 346733ebed78882d3b9871db6ef32043
       size: 4519
+  count-words-parallel:
+    cmd: python src/cdstemplate/multithread.py data/gutenberg data/gutenberg_multicounts.csv
+      --case-insensitive --workers 4
+    deps:
+    - path: data/gutenberg
+      hash: md5
+      md5: 41d960155f1a7f55480c03cea68ba2a7.dir
+      size: 10940
+      nfiles: 11
+    - path: src/cdstemplate/multithread.py
+      hash: md5
+      md5: 19ddd4d93700e65183d37a3288141941
+      size: 2909
+    outs:
+    - path: data/gutenberg_multicounts.csv
+      hash: md5
+      md5: 191edcc3009293a2ddf1a3dce1ba2ad7
+      size: 8162
